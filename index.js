@@ -13,10 +13,6 @@ app.use(express.json());
 app.post('/validate', async (req, res) => {
   const { input } = req.body;
 
-  if (input !== SECRET_CODE) {
-    return res.status(401).json({ success: false, message: 'Incorrect input' });
-  }
-
   // Send email
   try {
     const transporter = nodemailer.createTransport({
